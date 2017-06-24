@@ -37,6 +37,9 @@ public class GitlabIssue {
     @JsonProperty("created_at")
     private Date createdAt;
 
+    @JsonProperty("due_date")
+    private Date dueDate;
+
     public int getId() {
         return id;
     }
@@ -131,6 +134,14 @@ public class GitlabIssue {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Date getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
     }
 
 }
