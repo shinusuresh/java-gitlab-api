@@ -21,38 +21,38 @@ public class GitlabProject {
     private String defaultBranch;
 
     private GitlabUser owner;
-    private boolean publicProject;
+    private Boolean publicProject;
     private String path;
 
-    @JsonProperty("visibility_level")
-    private Integer visibilityLevel;
+    @JsonProperty("visibility")
+    private String visibility;
 
     @JsonProperty("path_with_namespace")
     private String pathWithNamespace;
 
     @JsonProperty("issues_enabled")
-    private boolean issuesEnabled;
+    private Boolean issuesEnabled;
 
     @JsonProperty("merge_requests_enabled")
-    private boolean mergeRequestsEnabled;
+    private Boolean mergeRequestsEnabled;
 
     @JsonProperty("snippets_enabled")
-    private boolean snippetsEnabled;
+    private Boolean snippetsEnabled;
 
     @JsonProperty("wall_enabled")
-    private boolean wallEnabled;
+    private Boolean wallEnabled;
 
     @JsonProperty("wiki_enabled")
-    private boolean wikiEnabled;
+    private Boolean wikiEnabled;
 
     @JsonProperty("jobs_enabled")
-    private boolean jobsEnabled;
+    private Boolean jobsEnabled;
 
     @JsonProperty("shared_runners_enabled")
-    private boolean sharedRunnersEnabled;
+    private Boolean sharedRunnersEnabled;
 
     @JsonProperty("public_jobs")
-    private boolean publicJobs;
+    private Boolean publicJobs;
 
     @JsonProperty("runners_token")
     private String runnersToken;
@@ -73,7 +73,7 @@ public class GitlabProject {
     private Date lastActivityAt;
 
     @JsonProperty("archived")
-    private boolean archived;
+    private Boolean archived;
 
     private GitlabNamespace namespace;
 
@@ -97,6 +97,39 @@ public class GitlabProject {
 
     @JsonProperty("shared_with_groups")
     private List<GitlabProjectSharedGroup> sharedWithGroups;
+
+    @JsonProperty("container_registry_enabled")
+    private Boolean containerRegistryEnabled;
+
+    @JsonProperty("only_allow_merge_if_pipeline_succeeds")
+    private Boolean onlyAllowMergeIfPipelineSucceeds;
+
+    @JsonProperty("only_allow_merge_if_all_discussions_are_resolved")
+    private Boolean onlyAllowMergeIfAllDiscussionsAreResolved;
+
+    @JsonProperty("lfs_enabled")
+    private Boolean lfsEnabled;
+
+    @JsonProperty("request_access_enabled")
+    private Boolean requestAccessEnabled;
+
+    @JsonProperty("repository_storage")
+    private String repositoryStorage;
+
+    @JsonProperty("approvals_before_merge")
+    private Integer approvalsBeforeMerge;
+
+    @JsonProperty("import_url")
+    private String importUrl;
+
+    @JsonProperty("forked_from_project")
+    private GitlabProject forkedFrom;
+
+    @JsonProperty("printing_merge_request_link_enabled")
+    private Boolean printingMergeRequestLinkEnabled;
+
+    @JsonProperty("import_status")
+    private String importStatus;
 
     public Integer getId() {
         return id;
@@ -138,12 +171,12 @@ public class GitlabProject {
         this.defaultBranch = defaultBranch;
     }
 
-    public Integer getVisibilityLevel() {
-        return visibilityLevel;
+    public String getVisibility() {
+        return visibility;
     }
 
-    public void setVisibilityLevel(Integer visibilityLevel) {
-        this.visibilityLevel = visibilityLevel;
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
     }
 
     public GitlabUser getOwner() {
@@ -170,67 +203,107 @@ public class GitlabProject {
         this.pathWithNamespace = pathWithNamespace;
     }
 
-    public boolean isIssuesEnabled() {
+    public Boolean isIssuesEnabled() {
         return issuesEnabled;
     }
 
-    public void setIssuesEnabled(boolean issuesEnabled) {
+    public void setIssuesEnabled(Boolean issuesEnabled) {
         this.issuesEnabled = issuesEnabled;
     }
 
-    public boolean isMergeRequestsEnabled() {
+    public Boolean isMergeRequestsEnabled() {
         return mergeRequestsEnabled;
     }
 
-    public void setMergeRequestsEnabled(boolean mergeRequestsEnabled) {
+    public void setMergeRequestsEnabled(Boolean mergeRequestsEnabled) {
         this.mergeRequestsEnabled = mergeRequestsEnabled;
     }
 
-    public boolean isSnippetsEnabled() {
+    public Boolean isSnippetsEnabled() {
         return snippetsEnabled;
     }
 
-    public void setSnippetsEnabled(boolean snippetsEnabled) {
+    public void setSnippetsEnabled(Boolean snippetsEnabled) {
         this.snippetsEnabled = snippetsEnabled;
     }
 
-    public boolean isWallEnabled() {
+    public Boolean isWallEnabled() {
         return wallEnabled;
     }
 
-    public void setWallEnabled(boolean wallEnabled) {
+    public void setWallEnabled(Boolean wallEnabled) {
         this.wallEnabled = wallEnabled;
     }
 
-    public boolean isWikiEnabled() {
+    public Boolean isWikiEnabled() {
         return wikiEnabled;
     }
 
-    public void setWikiEnabled(boolean wikiEnabled) {
+    public void setWikiEnabled(Boolean wikiEnabled) {
         this.wikiEnabled = wikiEnabled;
     }
 
-    public boolean isJobsEnabled() {
+    public Boolean isJobsEnabled() {
         return jobsEnabled;
     }
 
-    public void setJobsEnabled(boolean jobsEnabled) {
+    public void setJobsEnabled(Boolean jobsEnabled) {
         this.jobsEnabled = jobsEnabled;
     }
 
-    public boolean isSharedRunnersEnabled() {
+    public Boolean isRequestAccessEnabled() {
+        return requestAccessEnabled;
+    }
+
+    public void setRequestAccessEnabled(Boolean requestAccessEnabled) {
+        this.requestAccessEnabled = requestAccessEnabled;
+    }
+
+    public Boolean isLfsEnabled() {
+        return lfsEnabled;
+    }
+
+    public void setLfsEnabled(Boolean lfsEnabled) {
+        this.lfsEnabled = lfsEnabled;
+    }
+
+    public Boolean isSharedRunnersEnabled() {
         return sharedRunnersEnabled;
     }
 
-    public void setSharedRunnersEnabled(boolean sharedRunnersEnabled) {
+    public void setSharedRunnersEnabled(Boolean sharedRunnersEnabled) {
         this.sharedRunnersEnabled = sharedRunnersEnabled;
     }
 
-    public boolean hasPublicJobs() {
+    public Boolean getOnlyAllowMergeIfPipelineSucceeds() {
+        return onlyAllowMergeIfPipelineSucceeds;
+    }
+
+    public void setOnlyAllowMergeIfPipelineSucceeds(Boolean onlyAllowMergeIfPipelineSucceeds) {
+        this.onlyAllowMergeIfPipelineSucceeds = onlyAllowMergeIfPipelineSucceeds;
+    }
+
+    public Boolean getOnlyAllowMergeIfAllDiscussionsAreResolved() {
+        return onlyAllowMergeIfAllDiscussionsAreResolved;
+    }
+
+    public void setOnlyAllowMergeIfAllDiscussionsAreResolved(Boolean onlyAllowMergeIfAllDiscussionsAreResolved) {
+        this.onlyAllowMergeIfAllDiscussionsAreResolved = onlyAllowMergeIfAllDiscussionsAreResolved;
+    }
+
+    public Boolean isContainerRegistryEnabled() {
+        return containerRegistryEnabled;
+    }
+
+    public void setContainerRegistryEnabled(Boolean containerRegistryEnabled) {
+        this.containerRegistryEnabled = containerRegistryEnabled;
+    }
+
+    public Boolean hasPublicJobs() {
         return publicJobs;
     }
 
-    public void setPublicJobs(boolean publicJobs) {
+    public void setPublicJobs(Boolean publicJobs) {
         this.publicJobs = publicJobs;
     }
 
@@ -282,19 +355,19 @@ public class GitlabProject {
         this.namespace = namespace;
     }
 
-    public boolean isPublic() {
+    public Boolean isPublic() {
         return publicProject;
     }
 
-    public void setPublic(boolean aPublic) {
+    public void setPublic(Boolean aPublic) {
         publicProject = aPublic;
     }
 
-    public boolean isArchived() {
+    public Boolean isArchived() {
         return archived;
     }
 
-    public void setArchived(boolean archived) {
+    public void setArchived(Boolean archived) {
         this.archived = archived;
     }
 
@@ -360,5 +433,68 @@ public class GitlabProject {
 
     public void setSharedWithGroups(List<GitlabProjectSharedGroup> sharedWithGroups) {
         this.sharedWithGroups = sharedWithGroups;
+    }
+
+    public String getRepositoryStorage() {
+        return repositoryStorage;
+    }
+
+    public void setRepositoryStorage(String repositoryStorage) {
+        this.repositoryStorage = repositoryStorage;
+    }
+
+    public Integer getApprovalsBeforeMerge() {
+        return approvalsBeforeMerge;
+    }
+
+    public void setApprovalsBeforeMerge(Integer approvalsBeforeMerge) {
+        this.approvalsBeforeMerge = approvalsBeforeMerge;
+    }
+
+    public String getImportUrl() {
+        return importUrl;
+    }
+
+    public void setImportUrl(String importUrl) {
+        this.importUrl = importUrl;
+    }
+
+    public GitlabProject getForkedFrom() {
+        return forkedFrom;
+    }
+
+    public void setForkedFrom(GitlabProject forkedFrom) {
+        this.forkedFrom = forkedFrom;
+    }
+
+    public Boolean isPrintingMergeRequestLinkEnabled() {
+        return printingMergeRequestLinkEnabled;
+    }
+
+    public void setPrintingMergeRequestLinkEnabled(Boolean printingMergeRequestLinkEnabled) {
+        this.printingMergeRequestLinkEnabled = printingMergeRequestLinkEnabled;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        GitlabProject that = (GitlabProject) o;
+
+        if (id != null || that.id != null) {
+            return id != null && id.equals(that.id);
+        } else {
+            if (name != null ? !name.equals(that.name) : that.name != null) return false;
+            return namespace != null ? namespace.equals(that.namespace) : that.namespace == null;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (namespace != null ? namespace.hashCode() : 0);
+        return result;
     }
 }

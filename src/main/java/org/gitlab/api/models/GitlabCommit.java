@@ -1,9 +1,9 @@
 package org.gitlab.api.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GitlabCommit {
 
@@ -33,6 +33,9 @@ public class GitlabCommit {
 
     @JsonProperty("parent_ids")
     private List<String> parentIds;
+
+    @JsonProperty("last_pipeline")
+    private GitlabPipeline lastPipeline;
 
     public String getId() {
         return id;
@@ -125,5 +128,18 @@ public class GitlabCommit {
         } catch (ClassCastException e) {
             return false;
         }
+    }
+
+    @Override
+    public int hashCode() {
+        return this.getId().hashCode();
+    }
+
+    public GitlabPipeline getLastPipeline() {
+        return lastPipeline;
+    }
+
+    public void setLastPipeline(GitlabPipeline lastPipeline) {
+        this.lastPipeline = lastPipeline;
     }
 }
